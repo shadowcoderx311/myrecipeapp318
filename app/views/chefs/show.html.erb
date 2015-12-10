@@ -13,6 +13,10 @@
     </div>
 </div>
 
+<% if logged_in? and current_user.admin? %>
+  <%= link_to "Delete Chef", @chef, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-success", id: "delete" %>
+<% end %>
+
 <% @recipes.each do |recipe| %>
  <div class="row">
    <div class="col-lg-6 well col-lg-offset-3">
