@@ -26,14 +26,6 @@ ActiveRecord::Schema.define(version: 20151210174501) do
     t.string "name"
   end
 
-  create_table "like", force: :cascade do |t|
-    t.boolean  "like"
-    t.integer  "chef_id"
-    t.integer  "recipe_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "likes", force: :cascade do |t|
     t.boolean  "like"
     t.integer  "chef_id"
