@@ -21,7 +21,6 @@ gem 'fog', '1.36.0'
 gem 'spring',         group: :development
 
 group :development, :test do
-  gem 'sqlite3'
   gem 'pry'
 end
 
