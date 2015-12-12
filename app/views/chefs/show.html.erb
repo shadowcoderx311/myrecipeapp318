@@ -13,8 +13,8 @@
     </div>
 </div>
 
-<% if logged_in? and current_user.admin? %>
-  <%= link_to "Delete Chef", @chef, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-success", id: "delete" %>
+<% if logged_in? and current_user %>
+  <%= link_to "Delete Chef", @chef, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger", id: "delete" %>
 <% end %>
 
 <% @recipes.each do |recipe| %>

@@ -26,7 +26,7 @@ class ChefsController < ApplicationController
     end
     
     def update
-        if@chef.update(chef_params)
+        if @chef.update(chef_params)
             flash[:success] = "Your profile has been updated succesfully"
             redirect_to chef_path(@chef)
         else
@@ -36,6 +36,12 @@ class ChefsController < ApplicationController
     
     def show
         @recipes = @chef.recipes.paginate(page: params[:page], per_page: 3)
+    end
+    
+    def destroy
+         @chef = Chef.destroy(params[:id])
+         flash[:success] = "Chef Deleted"
+         redirect_to logout_path
     end
     
     private
