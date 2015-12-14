@@ -22,7 +22,7 @@ class ChefsController < ApplicationController
     end
     
     def edit
-        
+        @chef = Chef.find(params[:id])
     end
     
     def update
@@ -35,6 +35,7 @@ class ChefsController < ApplicationController
     end
     
     def show
+        @chef = Chef.find(params[:id])
         @recipes = @chef.recipes.paginate(page: params[:page], per_page: 3)
     end
     
@@ -55,7 +56,7 @@ class ChefsController < ApplicationController
       end
       
       def require_same_user
-          if current_user != @chef
+          if current_user != @recipe.chef and !current_user.admin?
            flash[:danger] = "You can only edit your own profile"
            redirect_to root_path
           end
