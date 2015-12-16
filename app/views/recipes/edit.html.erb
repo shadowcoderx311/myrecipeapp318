@@ -25,6 +25,11 @@
           <%= f.label :description %>
           <%= f.text_area :description, rows: 10 %>
           
+          <strong>Colors:</strong>
+          <%= f.collection_check_boxes :colors_ids, Colors.all, :id, :name do |cb| %>
+            <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %>
+          <% end %>
+          <br><br>
           <strong>Styles:</strong>
           <%= f.collection_check_boxes :style_ids, Style.all, :id, :name do |cb| %>
             <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %>

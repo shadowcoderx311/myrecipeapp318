@@ -18,6 +18,9 @@
             <%= image_tag(@recipe.picture.url, class: "gravatar")  if @recipe.picture? %>
         </div>
         <div class="well">
+            <% if @recipe.colors.any? %>
+           <p>Styles: <%= render @recipe.colors %></p>
+          <% end %>
           <% if @recipe.styles.any? %>
            <p>Styles: <%= render @recipe.styles %></p>
           <% end %>
